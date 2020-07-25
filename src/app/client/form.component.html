@@ -1,0 +1,38 @@
+<div class="main__form">
+    <form [formGroup]="clientForm" (ngSubmit)="saveClient()">
+        <h2 class="main__title main__title--center">Registro de clientes</h2>
+        <span class="main__row">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" class="main__input" formControlName="name" />
+            <span class='main__input--error' *ngIf="clientForm.get('name').touched && clientForm.get('name').hasError('required')">El nombre
+                es requerido.
+            </span>
+        </span>
+        <span class="main__row">
+            <label for="lastname">Apellidos:</label>
+            <input type="text" class="main__input" id="lastname" formControlName="lastname" />
+            <span class='main__input--error' *ngIf="clientForm.controls['lastname'].touched && clientForm.controls['lastname'].errors?.required">El apellido
+                es requerido.
+            </span>
+        </span>
+        <span class="main__row">
+            <label for="birthdate">Fecha de nacimiento:</label>
+            <input readonly="readonly" class="main__input main__input--datepicker" [max]="maxBirthdate" (dateChange)="handleChangeBirthdate($event)" type="text" id="birthdate" matInput [matDatepicker]="picker" formControlName="birthdate" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <span class='main__input--error' *ngIf="clientForm.controls['birthdate'].touched && clientForm.controls['birthdate'].errors?.required">La fecha de nacimiento
+                es requerido.
+            </span>
+        </span>
+        <span class="main__row">
+            <label for="age">Edad:</label>
+            <input type="text" id="age" class="main__input" readonly="readonly" formControlName="age" />
+            <span class='main__input--error' *ngIf="clientForm.controls['age'].touched && clientForm.controls['age'].errors?.required">La edad
+                es requerido.
+            </span>
+        </span>
+        <span class="main__row">
+            <button type="submit" class="main__button main__button--gray main__button--width-full" [disabled]="clientForm.invalid">Enviar</button>
+        </span>
+    </form>
+</div>

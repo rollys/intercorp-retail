@@ -1,0 +1,33 @@
+<div class="main__list">
+    <h2 class="main__title main__title--center">Listado de clientes</h2>
+    <table class='main__table' *ngIf="clients && clients.length > 0; else emptyClients">
+        <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Apellidos</th>
+              <th>Edad</th>
+              <th>Fecha de nacimiento</th>
+              <th>Fecha probable de fallecimiento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clients, let index = index">
+                <td>{{client.name}}</td>
+                <td>{{client.lastname}}</td>
+                <td>{{client.age}}</td>
+                <td>{{client.birthdate | date}}</td>
+                <td>{{client.rip_date | date}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #emptyClients>
+        <span class="main__result">No hay datos</span>
+    </ng-template>
+    <h2 class="main__title main__title--center">Promedio de edad</h2>
+    <span class="main__result">{{averageAge}}</span>
+    <h2 class="main__title main__title--center">Desviación de estandar de la edad</h2>
+    <span class="main__result">{{standarDeviationAge}}</span>
+    <span class="main__row">
+        <a  href="" routerLink="/" class="main__button main__button--gray main__button--width-full" >Regresar a registro de clientes</a>
+    </span>
+</div>

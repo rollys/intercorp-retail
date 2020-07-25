@@ -1,0 +1,80 @@
+.main {
+    &__form {
+        padding: 1.5rem;
+        border: .2rem solid #f8f9fa;
+    }
+
+    &__title {
+        color: #6c757d;
+        
+        &--center {
+            text-align: center;
+        }
+    }
+
+    &__row {
+        margin-bottom: 1rem;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        & label {
+            display: inline-block;
+            margin-bottom: .5rem;
+        }
+    }
+
+    &__input {
+        display: block;
+        width: 100%;
+        height: calc(2rem + 2px);
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #ffffff;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+
+        &--datepicker {
+            width: calc(100% - 70px) ;
+        }
+
+        &--error{
+            color:red;
+            padding-top: 5px;
+        }
+    }
+
+    &__button {
+        display: inline-block;
+        font-weight: 400;
+        color: #212529;
+        text-align: center;
+        vertical-align: middle;
+        background-color: transparent;
+        border: 1px solid transparent;
+        padding: .375rem .75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: .25rem;
+
+        &--gray{
+            color: #fff;
+            background-color: #6c757d;
+            border-color: #6c757d;
+        }
+
+        &--width-full {
+            width: 100%;
+        }
+    }
+}
+
+
+button:disabled, button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
